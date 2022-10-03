@@ -1,2 +1,6 @@
+http://example.com/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/
 http://example.com/2022/10/03/hello-world/
 http://example.com/
+http://example.com/tags/Python/
+http://example.com/tags/pyinstaller/
+http://example.com/categories/Python/

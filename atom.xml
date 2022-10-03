@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-02T20:26:24.620Z</updated>
+  <updated>2022-10-03T18:45:07.765Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python使用pyinstaller打包成exe</title>
+    <link href="http://example.com/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/"/>
+    <id>http://example.com/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/</id>
+    <published>2022-10-03T18:23:57.000Z</published>
+    <updated>2022-10-03T18:45:07.765Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装pyinstaller："><a href="#安装pyinstaller：" class="headerlink" title="安装pyinstaller："></a><strong>安装pyinstaller：</strong></h2><blockquote><p>首先安装pyinstaller，使用安装命令：<code>pip3 install pyinstaller</code></p></blockquote><h2 id="Pyinstaller打包exe："><a href="#Pyinstaller打包exe：" class="headerlink" title="Pyinstaller打包exe："></a><strong>Pyinstaller打包exe</strong>：</h2><blockquote><p><code>Pyinstaller -F xxx.py</code> 打包exe</p></blockquote><blockquote><p><code>Pyinstaller -F -w xxx.py</code> 不带控制台的打包</p></blockquote><blockquote><p><code>Pyinstaller -F -i xxx.ico xxx.py</code> 打包指定exe图标打包</p></blockquote><h2 id="设置文件版本信息："><a href="#设置文件版本信息：" class="headerlink" title="设置文件版本信息："></a>设置文件版本信息：</h2><p><strong>方法一：</strong></p><p>进入pyinstaller的此目录\PyInstaller\utils\cliutils\下（如果不知道路径可以通过去全盘查询cliutils来找到相应的文件夹，此处安利一款window上的文件查询小软件——Everything：<a href="https://www.voidtools.com/zh-cn/downloads/%EF%BC%8C%E6%9F%A5%E8%AF%A2%E9%80%9F%E5%BA%A6%E8%B6%85%E7%BA%A7%E5%BF%AB%EF%BC%81%EF%BC%89">https://www.voidtools.com/zh-cn/downloads/，查询速度超级快！）</a></p><p>你会看到如下几个文件：</p><p><img src="https://pic2.zhimg.com/80/v2-806a1583b2cd5814ab13ea3800b097f4_hd.png" alt="img"></p><p>其中的grab_version是用来捕获一个exe文件的版本信息并自动在同一目录下输出一个file_version_info.txt文件版本信息的，其中set_version是用来给一个exe文件赋值版本信息的，用法分别如下：</p><blockquote><ol><li>进入cmd界面</li></ol></blockquote><blockquote><ol start="2"><li>将目录转移到C:\ProgramData\Anaconda3\Lib\site-packages\PyInstaller\utils\cliutils\下</li></ol></blockquote><blockquote><ol start="3"><li>拷贝一个要获取版本信息的exe文件到这个目录下</li></ol></blockquote><blockquote><ol start="4"><li>在cmd窗口键入：<code>python grab_version.py filename.exe</code></li></ol></blockquote><blockquote><ol start="5"><li>目录下会自动出现一个标准的file_version_info.txt文件，双击打开，按照相应的需求修改</li></ol></blockquote><blockquote><ol start="6"><li>在cmd窗口键入：<code>python set_version.py file_version_info.txt youfilename.exe</code>即可</li></ol></blockquote><p><strong>方法二：</strong></p><blockquote><p>在打包的时候就已经准备好了版本信息文件：file_version_info.txt</p></blockquote><blockquote><p>打包时用此参数<code>--version-file</code> 即可：<code>pyinstaller --version-file file_version_info.txt test.py</code></p></blockquote><p>最后打包成exe，可以右键点击exe文件查看详细信息，可以看到有文件版本信息。</p><p><img src="https://pic4.zhimg.com/v2-625944461436406a746dfb4db10ec637_b.png" alt="img"></p><h2 id="运行pyinstaller来打包exe："><a href="#运行pyinstaller来打包exe：" class="headerlink" title="运行pyinstaller来打包exe："></a>运行pyinstaller来打包exe：</h2><p>一般用pyinstaller打包exe会用到-F参数（表示打包成一个EXE文件）或者–version-file（给exe文件赋予版本信息），其他参数如需了解，可以输入pyinstaller -h来获取帮助信息。</p><p><img src="https://pic4.zhimg.com/v2-8c68815945dc5ba1f81a17580dc3e28b_b.png" alt="img"></p><p>比如需要打包test.py文件为exe，用如下方式：</p><p><img src="https://pic3.zhimg.com/v2-e6e43db04eb0044481e248ead45271f6_b.png" alt="img"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;安装pyinstaller：&quot;&gt;&lt;a href=&quot;#安装pyinstaller：&quot; class=&quot;headerlink&quot; title=&quot;安装pyinstaller：&quot;&gt;&lt;/a&gt;&lt;strong&gt;安装pyinstaller：&lt;/strong&gt;&lt;/h2&gt;&lt;blockqu</summary>
+      
+    
+    
+    
+    <category term="Python" scheme="http://example.com/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    
+    <category term="pyinstaller" scheme="http://example.com/tags/pyinstaller/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
