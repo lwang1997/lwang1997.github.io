@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/tags/index.html</loc>
+    
+    <lastmod>2022-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2022/10/04/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0-%E6%96%87%E7%AB%A0%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%8F%8Abanner-MarkDown/</loc>
     
     <lastmod>2022-10-03</lastmod>
@@ -38,13 +47,6 @@
 
   
   <url>
-    <loc>http://example.com/tags/Hexo/</loc>
-    <lastmod>2022-10-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/Python/</loc>
     <lastmod>2022-10-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -58,17 +60,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://example.com/tags/Hexo/</loc>
+    <lastmod>2022-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>http://example.com/categories/Hexo/</loc>
+    <loc>http://example.com/categories/Python/</loc>
     <lastmod>2022-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/Python/</loc>
+    <loc>http://example.com/categories/Hexo/</loc>
     <lastmod>2022-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
