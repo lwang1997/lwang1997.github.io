@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-03T18:45:07.765Z</updated>
+  <updated>2022-10-03T18:56:50.819Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客删除文章</title>
+    <link href="http://example.com/2022/10/04/Hexo%E5%8D%9A%E5%AE%A2%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/"/>
+    <id>http://example.com/2022/10/04/Hexo%E5%8D%9A%E5%AE%A2%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</id>
+    <published>2022-10-03T18:54:21.000Z</published>
+    <updated>2022-10-03T18:56:50.819Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="普通删除方式"><a href="#普通删除方式" class="headerlink" title="普通删除方式"></a>普通删除方式</h2><p>Hexo正常删除文章的流程是先删除本地文件。</p><p>以原始文件：helloworld.md为例：</p><p>首先进入到source &#x2F; _post 文件夹中，找到helloworld.md文件，在本地直接执行删除。</p><p>然后依次执行命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>此时已经成功删除文章了。</p><h2 id="已发布文章删除"><a href="#已发布文章删除" class="headerlink" title="已发布文章删除"></a>已发布文章删除</h2><p>如果你已经将文章git发布了，此时会在本地创建一个名为 <code>.deploy_git</code>的文件夹，并将生成的文件复制到该文件夹。</p><p>你需要删除本地的文章后，再删除 <code>.deploy_git</code>文件夹。</p><p><a href="https://pic.zeyiwl.cn/yunimg/20220127172119.png"><img src="https://pic.zeyiwl.cn/yunimg/20220127172119.png" alt="img"></a></p><p>最后依次执行正常删除的命令。</p><h2 id="强制性删除文件"><a href="#强制性删除文件" class="headerlink" title="强制性删除文件"></a>强制性删除文件</h2><p>如果你因为某些原因如我操作失误导致的无法删除的话，你可以尝试如下做法：</p><ol><li>将 <code>source\_posts</code>文件夹中除需要被删除的文件外的所有 <code>.md</code>文件复制到一个新文件夹中。</li></ol><p><a href="https://pic.zeyiwl.cn/yunimg/20220127172437.png"><img src="https://pic.zeyiwl.cn/yunimg/20220127172437.png" alt="img"></a></p><ol><li>在 <code>source</code>文件夹中直接删除 <code>_posts</code>整个文件夹。</li><li>在 <code>source</code>中新建一个文件夹并命名为 <code>_posts</code>，此时这个文件夹内是空的。</li><li>将复制出来的所有.md文件粘贴到新创建的 <code>_posts</code>文件夹。</li><li>最后依次执行普通删除的命令即可</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;普通删除方式&quot;&gt;&lt;a href=&quot;#普通删除方式&quot; class=&quot;headerlink&quot; title=&quot;普通删除方式&quot;&gt;&lt;/a&gt;普通删除方式&lt;/h2&gt;&lt;p&gt;Hexo正常删除文章的流程是先删除本地文件。&lt;/p&gt;
+&lt;p&gt;以原始文件：helloworld.md为例：&lt;/</summary>
+      
+    
+    
+    
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Python使用pyinstaller打包成exe</title>
