@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-03T19:37:24.667Z</updated>
+  <updated>2022-10-03T19:39:21.303Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2022/10/04/Hexo%E6%96%B0%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%BD%92%E6%A1%A3%E7%AD%89%E9%A1%B5%E9%9D%A2/"/>
     <id>http://example.com/2022/10/04/Hexo%E6%96%B0%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%BD%92%E6%A1%A3%E7%AD%89%E9%A1%B5%E9%9D%A2/</id>
     <published>2022-10-03T19:31:04.000Z</published>
-    <updated>2022-10-03T19:37:24.667Z</updated>
+    <updated>2022-10-03T19:39:21.303Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、hexo新建标签、分类、归档页面，步骤都是类似的："><a href="#一、hexo新建标签、分类、归档页面，步骤都是类似的：" class="headerlink" title="一、hexo新建标签、分类、归档页面，步骤都是类似的："></a>一、<a href="https://so.csdn.net/so/search?q=hexo&spm=1001.2101.3001.7020">hexo</a>新建标签、分类、归档页面，步骤都是类似的：</h3><ol><li><p>新建页面</p></li><li><p>设置页面的类型</p></li><li><p>打开主题中的相关设置</p></li></ol><h3 id="二、举例"><a href="#二、举例" class="headerlink" title="二、举例"></a>二、举例</h3><p>比如新建标签页：</p><ol><li>用命令行新建一个页面：（页面名称可以任意）</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;tages&quot;</span> </span><br></pre></td></tr></table></figure><ol start="2"><li>打开 <strong>&#x2F;source&#x2F;tages&#x2F;index.md</strong>，设置其类型 type 值为“tages”</li></ol><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: 2019-07-26 00:33:58</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure><ol start="3"><li>打开 <strong>&#x2F;themes&#x2F;主题&#x2F;_config.yml</strong>，把tages标签那项取消注释即可，下面的是已经取消注释了的。</li></ol><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line">  主页: <span class="regexp">/</span></span><br><span class="line"><span class="regexp">  #随笔: /tags</span><span class="regexp">/随笔/</span></span><br><span class="line">  <span class="comment">#分类: /categories</span></span><br><span class="line">  <span class="comment">#归档: /archives</span></span><br><span class="line">  标签: <span class="regexp">/tags</span></span><br></pre></td></tr></table></figure><h3 id="三、对应关系"><a href="#三、对应关系" class="headerlink" title="三、对应关系"></a>三、对应关系</h3><table><thead><tr><th>page</th><th>type</th><th>内容</th></tr></thead><tbody><tr><td>tages</td><td>tages</td><td>标签</td></tr><tr><td>categories</td><td>categories</td><td>分类</td></tr><tr><td>archives</td><td>archives</td><td>归档</td></tr><tr><td>about</td><td>about</td><td>关于我(自我介绍)</td></tr></tbody></table><hr><p>具体可参考：hext主题的wiki : <a href="https://github.com/iissnan/hexo-theme-next/wiki/%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2">创建分类页面</a></p>]]></content>
     
