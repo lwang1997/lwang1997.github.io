@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/10/04/ESP32-esp-idf-lvgl-V8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%A7%BB%E6%A4%8D/</loc>
+    <loc>https://lwang1997.github.io/2022/10/04/ESP32-esp-idf-lvgl-V8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%A7%BB%E6%A4%8D/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/</loc>
+    <loc>https://lwang1997.github.io/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/04/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0-%E6%96%87%E7%AB%A0%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%8F%8Abanner-MarkDown/</loc>
+    <loc>https://lwang1997.github.io/2022/10/04/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0-%E6%96%87%E7%AB%A0%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%8F%8Abanner-MarkDown/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/04/Hexo%E5%8D%9A%E5%AE%A2%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</loc>
+    <loc>https://lwang1997.github.io/2022/10/04/Hexo%E5%8D%9A%E5%AE%A2%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/</loc>
     
     <lastmod>2022-10-04</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/10/04/Hexo%E6%96%B0%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%BD%92%E6%A1%A3%E7%AD%89%E9%A1%B5%E9%9D%A2/</loc>
+    <loc>https://lwang1997.github.io/2022/10/04/Hexo%E6%96%B0%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%BD%92%E6%A1%A3%E7%AD%89%E9%A1%B5%E9%9D%A2/</loc>
     
     <lastmod>2022-10-03</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://lwang1997.github.io/tags/index.html</loc>
     
     <lastmod>2022-10-03</lastmod>
     
@@ -57,7 +57,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://lwang1997.github.io/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -65,42 +65,42 @@
 
   
   <url>
-    <loc>http://example.com/tags/Hexo/</loc>
+    <loc>https://lwang1997.github.io/tags/Hexo/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Python/</loc>
+    <loc>https://lwang1997.github.io/tags/lvgl/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/pyinstaller/</loc>
+    <loc>https://lwang1997.github.io/tags/ESP32/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/lvgl/</loc>
+    <loc>https://lwang1997.github.io/tags/ESP-IDF/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/ESP32/</loc>
+    <loc>https://lwang1997.github.io/tags/Python/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/ESP-IDF/</loc>
+    <loc>https://lwang1997.github.io/tags/pyinstaller/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -109,21 +109,21 @@
 
   
   <url>
-    <loc>http://example.com/categories/Hexo/</loc>
+    <loc>https://lwang1997.github.io/categories/Hexo/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/Python/</loc>
+    <loc>https://lwang1997.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
+    <loc>https://lwang1997.github.io/categories/Python/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
