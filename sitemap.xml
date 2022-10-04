@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2022/10/04/ESP32-esp-idf-lvgl-V8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%A7%BB%E6%A4%8D/</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/</loc>
     
     <lastmod>2022-10-04</lastmod>
@@ -76,6 +85,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://example.com/tags/lvgl/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/ESP32/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/ESP-IDF/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -87,6 +117,13 @@
   
   <url>
     <loc>http://example.com/categories/Python/</loc>
+    <lastmod>2022-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
     <lastmod>2022-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/2022/10/04/ESP32-esp-idf-lvgl-V8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%A7%BB%E6%A4%8D/</loc>
+    <lastmod>2022-10-04</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/2022/10/04/Python%E4%BD%BF%E7%94%A8pyinstaller%E6%89%93%E5%8C%85%E6%88%90exe/</loc>
     <lastmod>2022-10-04</lastmod>
   </url>
