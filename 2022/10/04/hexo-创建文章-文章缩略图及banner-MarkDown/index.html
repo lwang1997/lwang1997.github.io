@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="短叹๑">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="hexo 文章的创建及markdown语法 hexo 创建文章命令行输入： 1$ hexo new &quot;new article&quot;    之后在source&#x2F;_posts目录下面，多了一个new-article.md的文件。打开后： 12345---title: new articledate: 2018-09-28 20:10:33tags:---    文件的开头是属">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown">
+<meta property="og:url" content="https://lwang1997.github.io/2022/10/04/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0-%E6%96%87%E7%AB%A0%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%8F%8Abanner-MarkDown/index.html">
+<meta property="og:site_name" content="短叹๑Blog">
+<meta property="og:description" content="hexo 文章的创建及markdown语法 hexo 创建文章命令行输入： 1$ hexo new &quot;new article&quot;    之后在source&#x2F;_posts目录下面，多了一个new-article.md的文件。打开后： 12345---title: new articledate: 2018-09-28 20:10:33tags:---    文件的开头是属">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/wenjian.jpg">
+<meta property="og:image" content="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/suoluetu.png">
+<meta property="og:image" content="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/banner.jpg">
+<meta property="og:image" content="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/lujing.jpg">
+<meta property="og:image" content="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/lujing2.jpg">
+<meta property="article:published_time" content="2022-10-03T19:02:27.000Z">
+<meta property="article:modified_time" content="2022-10-04T09:42:12.773Z">
+<meta property="article:author" content="短叹๑">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/wenjian.jpg">
+  
+  
+  
+  <title>hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown - 短叹๑Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lwang1997.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>短叹๑Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-04 03:02" pubdate>
+          2022年10月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>hexo 文章的创建及markdown语法</p>
+<h2 id="hexo-创建文章"><a href="#hexo-创建文章" class="headerlink" title="hexo 创建文章"></a>hexo 创建文章</h2><p>命令行输入：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">$ hexo <span class="hljs-keyword">new</span> <span class="hljs-type"></span>&quot;<span class="hljs-keyword">new</span> <span class="hljs-type">article</span>&quot;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>之后在source&#x2F;_posts目录下面，多了一个new-article.md的文件。<br>打开后：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">new</span> <span class="hljs-string">article</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2018-09-28 20:10:33</span><br><span class="hljs-attr">tags:</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>文件的开头是属性，采用统一的yaml格式，用三条短横线分隔。下面是文章正文， 文章的正文支持markdown格式。<br><strong>新建、删除或修改文章后，不需要重启hexo server，刷新一下即可预览。</strong></p>
+<hr>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">文章可以拥有如下属性：<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">Setting</th>
+<th align="left">Description</th>
+<th align="left">Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">layout</td>
+<td align="left">layout</td>
+<td align="left">post或page</td>
+</tr>
+<tr>
+<td align="left">title</td>
+<td align="left">文章标题</td>
+<td align="left">文件名</td>
+</tr>
+<tr>
+<td align="left">date</td>
+<td align="left">创建日期</td>
+<td align="left">文件的创建日期</td>
+</tr>
+<tr>
+<td align="left">updated</td>
+<td align="left">修改日期</td>
+<td align="left">文件的修改日期</td>
+</tr>
+<tr>
+<td align="left">comments</td>
+<td align="left">是否开启评论</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">tags</td>
+<td align="left">标签</td>
+<td align="left">NULL</td>
+</tr>
+<tr>
+<td align="left">categories</td>
+<td align="left">分类</td>
+<td align="left">NULL</td>
+</tr>
+<tr>
+<td align="left">permalink</td>
+<td align="left">url中的名字</td>
+<td align="left">文件名</td>
+</tr>
+<tr>
+<td align="left">thumbnail</td>
+<td align="left">文章缩略图</td>
+<td align="left">NULL</td>
+</tr>
+<tr>
+<td align="left">banner</td>
+<td align="left">文章缩略图&amp;文章首部banner</td>
+<td align="left">NULL</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">分类只有一个，但标签可以有多个且有两种写法如下：</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">...</span><br><span class="hljs-attr">categories:</span> <span class="hljs-string">&quot;工具&quot;</span><br><span class="hljs-attr">tags:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">hexo</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">markdown</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">前端</span><br><span class="hljs-comment"># 或者</span><br><span class="hljs-comment"># tags: [hexo, markdown, 前端]</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="文章缩略图和banner"><a href="#文章缩略图和banner" class="headerlink" title="文章缩略图和banner"></a>文章缩略图和banner</h2><p><strong>注： 不同主题设置可能不同，本部分只针icarus主题， 其他主题仅供参考</strong><br>当只设置 banner 时，文章的缩略图 和 banner 将都是 banner 所设置的图片；<br>当只设置 thumbnail 时， 文章只有缩略图，无banner<br>当同时设置 banner 和 thumbnail 时，banner 为 banner图，thumbnail 为缩略图， 两者各自生效；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">设置图片前要在当前文章所在目录新建一个同名文件夹，用于存放图片等静态文件，如图；<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/wenjian.jpg"><img src="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/wenjian.jpg" srcset="/img/loading.gif" lazyload alt="文件目录"></a>文件目录<br>或者修改配置文件_config.yml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 创建时生成静态资源文件夹</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>此时创建新文章时会自动在同级目录下生成同名文件夹用于存放静态文件，不同的主题可通过 thumbnail 和 banner 两个属性来设置缩略图和banner</p>
+<h3 id="文章缩略图设置："><a href="#文章缩略图设置：" class="headerlink" title="文章缩略图设置："></a>文章缩略图设置：</h3><p><a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/suoluetu.png"><img src="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/suoluetu.png" srcset="/img/loading.gif" lazyload alt="文章缩略图"></a>文章缩略图</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-string">...</span><br><span class="hljs-attr">thumbnail:</span> <span class="hljs-string">https://...</span>        <span class="hljs-comment"># 此处为图片地址</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="文章banner设置："><a href="#文章banner设置：" class="headerlink" title="文章banner设置："></a>文章banner设置：</h3><p><a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/banner.jpg"><img src="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/banner.jpg" srcset="/img/loading.gif" lazyload alt="文章banner"></a>文章banner</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-string">...</span><br><span class="hljs-attr">banner:</span> <span class="hljs-string">https://...</span>           <span class="hljs-comment"># 此处为图片地址</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>*<strong>注： 若引用本地图片时，需要加上路径前缀，如下图：*</strong><br><a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/lujing.jpg"><img src="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/lujing.jpg" srcset="/img/loading.gif" lazyload alt="路径"></a>路径<br><a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/lujing2.jpg"><img src="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/lujing2.jpg" srcset="/img/loading.gif" lazyload alt="目录"></a>目录</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">则引用路径为：<br>banner: <span class="hljs-regexp">/blog/</span><span class="hljs-number">2018</span><span class="hljs-regexp">/09/</span><span class="hljs-number">27</span><span class="hljs-regexp">/hexo-创建文章/</span>banner.jpg<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="MarkDown-语法"><a href="#MarkDown-语法" class="headerlink" title="MarkDown 语法"></a>MarkDown 语法</h2><h3 id="斜体和粗体"><a href="#斜体和粗体" class="headerlink" title="斜体和粗体"></a>斜体和粗体</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-strong">*这是斜体*</span> 或 <span class="hljs-emphasis">_这也是斜体_</span> <br><span class="hljs-strong">**这是粗体**</span><br><span class="hljs-strong">***这是加粗斜体**</span>*<br>~~这是删除线~~<br>效果<br></code></pre></td></tr></table></figure>
+
+<p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br>*<strong>这是加粗斜体*</strong><br><del>这是删除线</del></p>
+<hr>
+<h3 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clean"># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br>###### 六级标题<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">行内形式：[我的博客](https:<span class="hljs-regexp">//</span>zhangjichengcc.github.io<span class="hljs-regexp">/blog/</span>)<br>参考形式：[我的博客][<span class="hljs-number">1</span>]，有一个很好的平台-[GitHub][<span class="hljs-number">2</span>]<br>[<span class="hljs-number">1</span>]:https:<span class="hljs-regexp">//</span>kevinpu.github.io/<br>[<span class="hljs-number">2</span>]:http:<span class="hljs-regexp">//</span>www.jianshu.com/<br>自动链接：我的博客地址&lt;https:<span class="hljs-regexp">//</span>zhangjichengcc.github.io<span class="hljs-regexp">/blog/</span>&gt;<br>效果<br></code></pre></td></tr></table></figure>
+
+<p>行内形式：<a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/">我的博客</a><br>参考形式：<a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/">我的博客</a>，有一个很好的平台-<a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/">GitHub</a></p>
+<p>自动链接：我的博客地址<a target="_blank" rel="noopener" href="https://zhangjichengcc.github.io/blog/">https://zhangjichengcc.github.io/blog/</a></p>
+<hr>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表："><a href="#无序列表：" class="headerlink" title="无序列表："></a>无序列表：</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">*</span> 无序列表项1<br><span class="hljs-bullet">+</span> 无序列表项2<br><span class="hljs-bullet">-</span> 无序列表项3<br>效果<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>无序列表项1</p>
+</li>
+<li><p>无序列表项2</p>
+</li>
+<li><p>无序列表项3</p>
+</li>
+</ul>
+<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">1.有序列表项1<br>2.有序列表项2<br>3.有序列表项3<br>效果<br></code></pre></td></tr></table></figure>
+
+<p>1.有序列表项1<br>2.有序列表项2<br>3.有序列表项3</p>
+<hr>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">![文字说明](<span class="hljs-regexp">/images/</span>...)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">|<span class="hljs-string"> 表头1</span>|<span class="hljs-string">表头2</span>|<span class="hljs-string">表头3</span>|<span class="hljs-string">表头4</span><br><span class="hljs-string"></span>|<span class="hljs-string">-</span>|<span class="hljs-string"> :- </span>|<span class="hljs-string"> :-: </span>|<span class="hljs-string"> -: </span>|<br>|<span class="hljs-string">默认左对齐</span>|<span class="hljs-string">左对齐</span>|<span class="hljs-string">居中对齐</span>|<span class="hljs-string">右对齐</span>|<br>|<span class="hljs-string">默认左对齐</span>|<span class="hljs-string">左对齐</span>|<span class="hljs-string">居中对齐</span>|<span class="hljs-string">右对齐</span>|<br>|<span class="hljs-string">默认左对齐</span>|<span class="hljs-string">左对齐</span>|<span class="hljs-string">居中对齐</span>|<span class="hljs-string">右对齐</span>|<br>效果<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">表头1</th>
+<th align="left">表头2</th>
+<th align="center">表头3</th>
+<th align="right">表头4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td align="left">默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td align="left">默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">​``` <span class="hljs-keyword">bash</span><br><span class="hljs-keyword"></span>..<span class="hljs-meta">.code</span> 主体<br>效果<br>..<span class="hljs-meta">.code</span> 主体<br></code></pre></td></tr></table></figure>
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">这是引用</span><br>这是引用<br>这是引用<br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;不！我才是引用</span><br>效果<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这是引用<br>这是引用<br>这是引用</p>
+<blockquote>
+<p>不！我才是引用</p>
+</blockquote>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Hexo/" class="category-chain-item">Hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown</div>
+      <div>https://lwang1997.github.io/2022/10/04/hexo-创建文章-文章缩略图及banner-MarkDown/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>短叹๑</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年10月4日</div>
+        </div>
+      
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/10/04/Hexo%E6%96%B0%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%BD%92%E6%A1%A3%E7%AD%89%E9%A1%B5%E9%9D%A2/" title="Hexo新建标签、分类、归档等页面">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo新建标签、分类、归档等页面</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/04/Hexo%E5%8D%9A%E5%AE%A2%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0/" title="Hexo博客删除文章">
+                        <span class="hidden-mobile">Hexo博客删除文章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> <a href="https://github.com/lwang1997" target="_blank" rel="nofollow noopener"><span>短叹๑</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
