@@ -1,0 +1,1 @@
+{"version":"1.0.2","content":"1. 修复了部分翻译引擎偶发超时的问题\n2. 优化了大批量文本翻译的稳定性\n3. 新增了对更多语言对的支持","download_url":"https://github.com/example/releases/latest"}
