@@ -1,1 +1,11 @@
-{"version":"1.0.4","content":"1. 新增搜狗翻译引擎（免费，无需API Key，支持22种语言）\n2. 设置界面同步适配新引擎\n3. 优化在线更新检测逻辑","download_urls":["https://gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe","https://v4.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe","https://v6.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe","https://cdn.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe","https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe"]}
+{
+  "version": "1.0.4",
+  "content": "1. 新增搜狗翻译引擎（免费，无需API Key，支持22种语言）\n2. 设置界面同步适配新引擎\n3. 优化在线更新检测逻辑",
+  "download_urls": [
+    "https://gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe",
+    "https://v4.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe",
+    "https://v6.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe",
+    "https://cdn.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe",
+    "https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.4/default.exe"
+  ]
+}
