@@ -1,0 +1,498 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>xbpq.jar tvbox接口写源教程 | 花梦旅人のBlog</title><meta name="author" content="短叹๑"><meta name="copyright" content="短叹๑"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="转载自 https:&#x2F;&#x2F;blog.soeasy.love&#x2F;TVBox&#x2F;xbpq.html   由于原地址访问不稳定 所以转载一下 著作权在原作者那里   感谢 SoEasy 同学    1.截取 所有截取前后用&amp;&amp;连接，也可用$$（调试助手方式）  不使用&amp;&amp;表示用指定字符串，如使用固定标题，固定图片，”标题”:”正片” “图片”:”http:&#x2F;&#x2F;xxx.xxx.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xbpq.jar tvbox接口写源教程">
+<meta property="og:url" content="https://lwang1997.github.io/2024/09/14/xbpq-jar-tvbox%E6%8E%A5%E5%8F%A3%E5%86%99%E6%BA%90%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="花梦旅人のBlog">
+<meta property="og:description" content="转载自 https:&#x2F;&#x2F;blog.soeasy.love&#x2F;TVBox&#x2F;xbpq.html   由于原地址访问不稳定 所以转载一下 著作权在原作者那里   感谢 SoEasy 同学    1.截取 所有截取前后用&amp;&amp;连接，也可用$$（调试助手方式）  不使用&amp;&amp;表示用指定字符串，如使用固定标题，固定图片，”标题”:”正片” “图片”:”http:&#x2F;&#x2F;xxx.xxx.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://q1.qlogo.cn/g?b=qq&nk=1593775941&s=640">
+<meta property="article:published_time" content="2024-09-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-29T18:23:30.490Z">
+<meta property="article:author" content="短叹๑">
+<meta property="article:tag" content="TVBox">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="xbpq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://q1.qlogo.cn/g?b=qq&nk=1593775941&s=640"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "xbpq.jar tvbox接口写源教程",
+  "url": "https://lwang1997.github.io/2024/09/14/xbpq-jar-tvbox%E6%8E%A5%E5%8F%A3%E5%86%99%E6%BA%90%E6%95%99%E7%A8%8B/",
+  "image": "https://q1.qlogo.cn/g?b=qq&nk=1593775941&s=640",
+  "datePublished": "2024-09-13T16:00:00.000Z",
+  "dateModified": "2026-06-29T18:23:30.490Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "短叹๑",
+      "url": "https://lwang1997.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://api.isoyu.com/ARU_GIF_S.php"><link rel="canonical" href="https://lwang1997.github.io/2024/09/14/xbpq-jar-tvbox%E6%8E%A5%E5%8F%A3%E5%86%99%E6%BA%90%E6%95%99%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'xbpq.jar tvbox接口写源教程',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/mouse.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1593775941&amp;s=640" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.seovx.com/?mom=302);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">花梦旅人のBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">xbpq.jar tvbox接口写源教程</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">xbpq.jar tvbox接口写源教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-13T16:00:00.000Z" title="发表于 2024-09-14 00:00:00">2024-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-29T18:23:30.490Z" title="更新于 2026-06-30 02:23:30">2026-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A9%E4%B8%8B%E6%9D%82%E4%BE%83/">天下杂侃</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>转载自 <a target="_blank" rel="noopener" href="https://blog.soeasy.love/TVBox/xbpq.html">https://blog.soeasy.love/TVBox/xbpq.html</a>  </p>
+<p>由于原地址访问不稳定 所以转载一下 著作权在原作者那里  </p>
+<p>感谢 SoEasy 同学  </p>
+</blockquote>
+<h2 id="1-截取"><a href="#1-截取" class="headerlink" title="1.截取"></a>1.截取</h2><ul>
+<li><p>所有截取前后用&amp;&amp;连接，也可用$$（调试助手方式）</p>
+</li>
+<li><p>不使用&amp;&amp;表示用指定字符串，如使用固定标题，固定图片，”标题”:”正片” “图片”:”<a target="_blank" rel="noopener" href="http://xxx.xxx.com/uplod0034.jpg">http://xxx.xxx.com/uplod0034.jpg</a>“</p>
+</li>
+<li><p>截取前可以使用通配符*，如&lt;a*&gt;&amp;&amp;</a>，一个字段只能使用一个通配符</p>
+</li>
+</ul>
+<h2 id="2-包含与不包含"><a href="#2-包含与不包含" class="headerlink" title="2.包含与不包含"></a>2.包含与不包含</h2><ul>
+<li><p>截取信息末尾可用中括号附加筛选包含或不包含，用#分隔多个关键词，全部英文符号，例如：</p>
+</li>
+<li><p>“分类数组”: “class&#x3D;&quot;nav&quot;&amp;&amp;</div>[不包含:首页#资讯]”</p>
+</li>
+<li><p>数组筛选除关键词筛选外还可以筛选序号，连续序号用-连接序号之间用#分隔，例如：</p>
+</li>
+<li><p>“数组”: “class&#x3D;&quot;hl-list-item&amp;&amp;</li>[不包含:1#9-11]”</p>
+</li>
+</ul>
+<h2 id="3-替换"><a href="#3-替换" class="headerlink" title="3.替换"></a>3.替换</h2><ul>
+<li><p>可在截取信息末尾用中括号修改替换显示内容，替换与被替换之间用&gt;&gt;分隔，用#分隔多个替换项，替换为汉字空时表示删除被替换词</p>
+</li>
+<li><p>被替换词可以用通配符<em>，比如(</em>)，会替换掉包含括号的左右括号之间的全部字符。替换内容也可以使用*，作用等同于&amp;&amp;截取，表示替换内容从网页获取，例如：</p>
+</li>
+<li><p>“线路数组”: “class&#x3D;”hl-tabs-btn hl-slide-swiper&amp;&amp;</a>[替换:线路1&gt;&gt;腾腾#播放&gt;&gt;空#(*)$空]”</p>
+</li>
+<li><p>数组或列表的替换可以使用&lt;序号&gt;来从1开始按顺序编号，例如：[替换:v&gt;&gt;?ep&#x3D;&lt;序号&gt;.mp4]</p>
+</li>
+</ul>
+<h2 id="4-拼接"><a href="#4-拼接" class="headerlink" title="4.+拼接"></a>4.+拼接</h2><ul>
+<li><p>+号拼接支持指定字符串与截取字符串混合拼接，例如：&#x2F;play&#x2F;+&#x2F;vod&#x2F;&amp;&amp;.html+-1-1.html，表示把&#x2F;vod&#x2F;id编号.html拼接成&#x2F;play&#x2F;id编号-1-1.html</p>
+</li>
+<li><p>可无限拼接</p>
+</li>
+<li><p>json模式的指定字符串拼接，需使用英文单引号，例如：’&#x2F;play&#x2F;‘+id+’-1-1.html’，表示把从json中获取的id值与前后字符串拼接</p>
+</li>
+</ul>
+<h2 id="5-指定截取"><a href="#5-指定截取" class="headerlink" title="5.指定截取"></a>5.指定截取</h2><ul>
+<li><p>所有字段支持按分类指定截取</p>
+</li>
+<li><p>指定方式：默认–a&amp;&amp;b||连续剧–c&amp;&amp;d||首页–e&amp;&amp;f||搜索–g&amp;&amp;h，未指定的使用第一组，json方式也可以指定；</p>
+</li>
+<li><p>首页和搜索也可以指定截取，都在获取分类字段中填写，搜索字段为空或只有”搜索url”时，搜索指定截取才生效</p>
+</li>
+<li><p>没有分类的单个文件或网页，可通过在地址后加?{cateId}(如果地址中已经有?，使用&amp;)，然后指定截取的方式进行分类展示</p>
+</li>
+<li><p>示例：</p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;live直播&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;live直播&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;playerType&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;api&quot;</span><span class="punctuation">:</span> <span class="string">&quot;csp_XBPQ&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;searchable&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;quickSearch&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;filterable&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;ext&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;主页url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./lives/live.txt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;直接播放&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;链接前缀&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;副标题&quot;</span><span class="punctuation">:</span> <span class="string">&quot;group-title=\&quot;&amp;&amp;\&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;分类&quot;</span><span class="punctuation">:</span> <span class="string">&quot;央视$1#卫视$2#地方$3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;分类url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./lives/live.txt?&#123;cateId&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;二次截取&quot;</span><span class="punctuation">:</span> <span class="string">&quot;央视--\\#\\#央视&amp;&amp;\\#\\#||卫视--\\#\\#卫视&amp;&amp;\\#\\#||地方--\\#\\#地方&amp;&amp;\\#\\#&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;数组&quot;</span><span class="punctuation">:</span> <span class="string">&quot;INF:&amp;&amp;EXT&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;标题&quot;</span><span class="punctuation">:</span> <span class="string">&quot;,&amp;&amp;http&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;图片&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;链接&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http&amp;&amp;\\#&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;嗅探词&quot;</span><span class="punctuation">:</span> <span class="string">&quot;m3u8&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="6-转义符"><a href="#6-转义符" class="headerlink" title="6.转义符"></a>6.转义符</h2><p>XBPQ使用到的连接符（$ # &amp; * [ ]）用于表示本义的时候，需要用\转义，比如：要截取href&#x3D;”?cat&amp;token&#x3D;5543tdd5779fd87554gfy”中的token&#x3D;5543tdd5779fd87554gfy，href&#x3D;”?cat\&amp;&amp;&amp;”</p>
+<h2 id="7-json模式-不懂什么是json的忽略此模式"><a href="#7-json模式-不懂什么是json的忽略此模式" class="headerlink" title="7.json模式(不懂什么是json的忽略此模式)"></a>7.json模式(不懂什么是json的忽略此模式)</h2><ul>
+<li><p>对于json文档，可直接使用json方式，不需要截取</p>
+</li>
+<li><p>普通网页中的json数据，需要截取包括大括号{}在内的json数据</p>
+</li>
+<li><p>示例：data.list[1].name，表示获取json对象”data”的json数组”list”的第1个json对象的”name”属性值</p>
+</li>
+<li><p>json数组可指定下标，最小下标为1，例如：list[]（完整数组），list[n]（list的第n个json对象），list[3,]（不包含第1个第2个）</p>
+</li>
+<li><p>处于中间位置的json数组，[]不能省略</p>
+</li>
+</ul>
+<h2 id="8-Base64"><a href="#8-Base64" class="headerlink" title="8.Base64"></a>8.Base64</h2><p>整个html如果是Base64编码，可在二次截取处填写”Base64”表示不截取，只解码，如果截取数据是Base64编码，可使用Base64()解码，比如Base64(a&amp;&amp;b)，表示对截取的结果进行Base64解码后再使用</p>
+<h2 id="9-填写及查错步骤"><a href="#9-填写及查错步骤" class="headerlink" title="9.填写及查错步骤"></a>9.填写及查错步骤</h2><p>除”分类url”外，大部分可以省略。</p>
+<p>写规则最简步骤：</p>
+<ul>
+<li><p>填写”分类url”，大部分可以成功</p>
+</li>
+<li><p>a.无分类展示数据：一般是分类获取错误，或者未指定数组情况下不能获取到有效数据。分别尝试填写”分类”和”数组”，如果还是没有数据，就把标题图片链接都填写完整。如果网站获取分类需要验证，直接放弃。</p>
+</li>
+<li><p>b.有分类，点不开详情页：这是”链接”获取错误，补充填写正确的”链接”</p>
+</li>
+<li><p>c.有分类，有详情，无播放列表或全部都是1：这是播放列表获取错误，补充填写正确”播放数组”以及相关字段</p>
+</li>
+<li><p>d.以上都有，但无法播放：这是获取”播放链接”错误，补充填写正确”播放链接”及相关字段</p>
+</li>
+<li><p>可使用”调试”:”1”，来查看获取的链接是否是自己想要的结果</p>
+</li>
+</ul>
+<h2 id="10-以下为完整字段"><a href="#10-以下为完整字段" class="headerlink" title="10.以下为完整字段"></a>10.以下为完整字段</h2><ul>
+<li><p>“主页url”: “”，默认从分类页中提取，一般不填</p>
+</li>
+<li><p>“编码”: “”，默认”UTF-8”，一般不填</p>
+</li>
+<li><p>“首页”: “”，可指定展示分类和数量，如”电影$20”，不指定数量默认展示最多40个，不指定分类默认展示首页推荐</p>
+</li>
+<li><p>“请求头”: “”，默认电脑ua，特殊网站需填写为”手机”</p>
+</li>
+<li><p>“头部集合”: “”，支持头部数据集，用$和#分隔</p>
+</li>
+<li><p>“播放请求头”: “”，支持播放单独头部数据集，用$和#分隔</p>
+</li>
+<li><p>“免嗅”: “”，默认为0</p>
+</li>
+<li><p>“嗅探词”: “”，默认使用壳的规则</p>
+</li>
+<li><p>“过滤词”: “”，默认使用壳的规则</p>
+</li>
+<li><p>“起始页”: “”，默认1，一般不填</p>
+</li>
+<li><p>“直接播放”: “”，默认0，为1时所有分类直接播放，也可以指定直接播放的分类，可以指定多个，以#分隔，比如”直接播放”:”电影#首页”</p>
+</li>
+<li><p>“短视频”: “”，默认0，用于直接播放类，为1时，直接播放可以省略不写，会拉取整页短视频到播放列表，而不是单个播放，也可以按分类指定，比如”短视频”:”直播”</p>
+</li>
+<li><p>“强制解析”: “”，默认0，全都走解析，解析失败再嗅探</p>
+</li>
+<li><p>“倒序”: “”，一般会自动倒序，不用填，也可强制指定</p>
+</li>
+<li><p>“图片代理”: “”，默认0，不显示图片时可试试1</p>
+</li>
+</ul>
+<h3 id="10-1-获取大分类"><a href="#10-1-获取大分类" class="headerlink" title="10.1 获取大分类"></a>10.1 获取大分类</h3><ul>
+<li><p>“分类url”: “”，第一页与其他页不一样的(一般是第一页没有页码)，直接用英文中括号加在分类url末尾，此处是否填写地区、剧情、年份、排序{area}、{class}、{year}、{by}，决定是否开启相应筛选。不支持语言和字母{lang}、{letter}的筛选，最好不填写这个</p>
+</li>
+<li><p>“分类”: “”，用$ #分隔，海阔模式时以&amp;分隔</p>
+</li>
+<li><p>“分类值”: “”，海阔模式时使用，以&amp;分隔</p>
+</li>
+</ul>
+<h3 id="10-2-也可以使用截取方式获取大分类"><a href="#10-2-也可以使用截取方式获取大分类" class="headerlink" title="10.2 也可以使用截取方式获取大分类"></a>10.2 也可以使用截取方式获取大分类</h3><ul>
+<li><p>“分类二次截取”: “”</p>
+</li>
+<li><p>“分类数组”: “”</p>
+</li>
+<li><p>“分类标题”: “”</p>
+</li>
+<li><p>“分类ID”: “”</p>
+</li>
+</ul>
+<h3 id="10-3-获取分类展示数据"><a href="#10-3-获取分类展示数据" class="headerlink" title="10.3 获取分类展示数据"></a>10.3 获取分类展示数据</h3><ul>
+<li><p>“二次截取”: “”，二次截取常用于在数组之前，对页面进行过滤截取，常用于分类页面显示视频列表数据+推荐视频列表数据，可以通过二次截取，先获取视频列表数据范围，再通过分组只拿列表，不要推荐</p>
+</li>
+<li><p>“数组”: “”</p>
+</li>
+<li><p>“图片”: “”</p>
+</li>
+<li><p>“标题”: “”</p>
+</li>
+<li><p>“副标题”: “”</p>
+</li>
+<li><p>“链接”: “”</p>
+</li>
+<li><p>“链接前缀”: “”</p>
+</li>
+<li><p>“链接后缀”: “”</p>
+</li>
+</ul>
+<h3 id="10-4-获取线路标题"><a href="#10-4-获取线路标题" class="headerlink" title="10.4 获取线路标题"></a>10.4 获取线路标题</h3><ul>
+<li><p>“线路二次截取”: “”</p>
+</li>
+<li><p>“线路数组”: “”，可按线路名排序，在引号内末尾添加，例如：[排序:自建蓝光&gt;腾腾&gt;优优]</p>
+</li>
+<li><p>“线路标题”: “”</p>
+</li>
+</ul>
+<h3 id="10-5-获取其他线路链接-用于播放列表不在详情页的情况，一般用不着"><a href="#10-5-获取其他线路链接-用于播放列表不在详情页的情况，一般用不着" class="headerlink" title="10.5 获取其他线路链接(用于播放列表不在详情页的情况，一般用不着)"></a>10.5 获取其他线路链接(用于播放列表不在详情页的情况，一般用不着)</h3><ul>
+<li><p>“多线二次截取”: “”</p>
+</li>
+<li><p>“多线数组”: “”</p>
+</li>
+<li><p>“多线链接”: “”</p>
+</li>
+<li><p>“多线链接前缀”: “”</p>
+</li>
+<li><p>“多线链接后缀”: “”</p>
+</li>
+</ul>
+<h3 id="10-6-获取详情"><a href="#10-6-获取详情" class="headerlink" title="10.6 获取详情"></a>10.6 获取详情</h3><ul>
+<li><p>“影片类型”: “”</p>
+</li>
+<li><p>“影片年代”: “”</p>
+</li>
+<li><p>“影片地区”: “”</p>
+</li>
+<li><p>“影片状态”: “”</p>
+</li>
+<li><p>“导演”: “”</p>
+</li>
+<li><p>“主演”: “”</p>
+</li>
+<li><p>“简介”: “”</p>
+</li>
+</ul>
+<h3 id="10-7-获取播放列表"><a href="#10-7-获取播放列表" class="headerlink" title="10.7 获取播放列表"></a>10.7 获取播放列表</h3><ul>
+<li><p>“播放二次截取”: “”</p>
+</li>
+<li><p>“播放数组”: “”，播放数组匹配的结果应该是能匹配多个，多条播放线路对应的列表数组，而截取是匹配一个，里面包含了所有的数组内容</p>
+</li>
+<li><p>“列表二次截取”: “”</p>
+</li>
+<li><p>“播放列表”: “”，一条播放线路对应的列表，该线路下的所有分集列表</p>
+</li>
+<li><p>“播放标题”: “”</p>
+</li>
+<li><p>“播放链接”: “”</p>
+</li>
+<li><p>“播放链接前缀”: “”</p>
+</li>
+<li><p>“播放链接后缀”: “”</p>
+</li>
+</ul>
+<h3 id="10-8-获取搜索数据"><a href="#10-8-获取搜索数据" class="headerlink" title="10.8 获取搜索数据"></a>10.8 获取搜索数据</h3><ul>
+<li><p>如果搜索全部不填，自动获取包括json和截取的搜索url并搜索</p>
+</li>
+<li><p>如果只填了搜索url，会通过数组字段获取搜索数据，可单独指定搜索截取，指定方式：在其他截取后追加||搜索–a&amp;&amp;b，json方式也可以</p>
+</li>
+<li><p>如果填了搜索url和搜索数组，则通过搜索字段获取搜索数据</p>
+</li>
+<li><p>“搜索url”: “”，可包含页码，会把搜索到的全部内容展示出来，jar能自动正确获取大部分网站搜索url，一般不用填写，手动post模式，网址;post;键1&#x3D;值1&amp;键2&#x3D;值2</p>
+</li>
+<li><p>“搜索模式”: “”，默认json与截取混合使用</p>
+</li>
+<li><p>“搜索二次截取”: “”</p>
+</li>
+<li><p>“搜索数组”: “”</p>
+</li>
+<li><p>“搜索图片”: “”</p>
+</li>
+<li><p>“搜索标题”: “”</p>
+</li>
+<li><p>“搜索链接”: “”</p>
+</li>
+<li><p>“搜索链接前缀”: “”</p>
+</li>
+<li><p>“搜索链接后缀”: “”</p>
+</li>
+</ul>
+<h3 id="10-9-获取筛选"><a href="#10-9-获取筛选" class="headerlink" title="10.9 获取筛选"></a>10.9 获取筛选</h3><ul>
+<li><p>“类型”: “”，对应{cteId}，用$ #分隔，海阔模式时以&amp;分隔</p>
+</li>
+<li><p>“类型值”: “”，海阔模式时使用，以&amp;分隔</p>
+</li>
+<li><p>“剧情”: “”，对应{class}，用$ #分隔，海阔模式时以&amp;分隔，内置通用模板，可使用[替换:惊悚&gt;&gt;空]的方式修改内置</p>
+</li>
+<li><p>“剧情值”: “”，海阔模式时使用，以&amp;分隔</p>
+</li>
+<li><p>“地区”: “”，对应{area}，用$ #分隔，海阔模式时以&amp;分隔，内置通用模板，可使用[替换:大陆&gt;&gt;中国大陆]的方式修改内置</p>
+</li>
+<li><p>“地区值”: “”，海阔模式时使用，以&amp;分隔</p>
+</li>
+<li><p>“年份”: “”，对应{year}，默认筛选截止目前最近15年，格式：起始年-终止年，也可使用海阔模式，以&amp;分隔</p>
+</li>
+<li><p>“年份值”: “”，海阔模式时使用，用&amp;分隔</p>
+</li>
+<li><p>“排序”: “”，对应{by}，默认英文模式，时间$time#热门$hits，以$ #分隔</p>
+</li>
+<li><p>“筛选”: “”</p>
+</li>
+<li><p>“筛选”不填写时，会根据”分类url”格式自动使用相应筛选</p>
+</li>
+<li><p>可在”筛选”字段填外部json地址，支持本地clan和外网http</p>
+</li>
+<li><p>可直接复制包含大括号{}的json数据到”筛选”字段，大括号前后不能有引号</p>
+</li>
+</ul>
+<hr>
+<h1 id="二、例子"><a href="#二、例子" class="headerlink" title="二、例子"></a>二、例子</h1><h2 id="1-freeok"><a href="#1-freeok" class="headerlink" title="1.freeok"></a>1.freeok</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;freeok&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1080P┃FROK&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;api&quot;</span><span class="punctuation">:</span> <span class="string">&quot;csp_XBPQ&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;ext&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;分类url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://www.freeok.vip/vod-show/&#123;cateId&#125;-&#123;area&#125;-------&#123;catePg&#125;---&#123;year&#125;.html;;ar1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;分类&quot;</span><span class="punctuation">:</span> <span class="string">&quot;电影&amp;剧集&amp;动漫&amp;综艺&amp;短剧&amp;少儿&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;分类值&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&amp;2&amp;3&amp;4&amp;12&amp;5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;副标题&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;div class=\&quot;module-item-note\&quot;&gt;&amp;&amp;&lt;/div&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;嗅探词&quot;</span><span class="punctuation">:</span> <span class="string">&quot;m3u8#.m3u8#.mp4#freeok.mp4#/obj/&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;线路数组&quot;</span><span class="punctuation">:</span> <span class="string">&quot;data-dropdown-value=&amp;&amp;&lt;/div&gt;[不包含:夸克#UC网盘]&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;线路标题&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;span&gt;&amp;&amp;&lt;/small&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;导演&quot;</span><span class="punctuation">:</span> <span class="string">&quot;导演：&amp;&amp;&lt;/div&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;主演&quot;</span><span class="punctuation">:</span> <span class="string">&quot;主演：&amp;&amp;&lt;/div&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;简介&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;p&gt;&amp;&amp;&lt;/p&gt;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-完整案例"><a href="#2-完整案例" class="headerlink" title="2.完整案例"></a>2.完整案例</h2><p>以上代码基本是xbpq全规则，规则主要构成为数组数据截取、线路数据截取、搜索数据截取、播放数据截取。</p>
+<p>本次主要介绍数组数据和播放数据的截取！</p>
+<p>首先搞数组数据： “数组”: “class&#x3D;&quot;stui-vodlist__box&quot;&amp;&amp;&lt;&#x2F;a”,</p>
+<p>“图片”: “data-original&#x3D;&quot;&amp;&amp;&quot;“,</p>
+<p>“标题”: “title&#x3D;&quot;&amp;&amp;&quot;“,</p>
+<p>“链接”: “href&#x3D;&quot;&amp;&amp;&quot;“,</p>
+<p>“副标题”: “&lt;span class&#x3D;&quot;pic-text text-right&quot;&gt;&amp;&amp;</span>“,</p>
+<p>截取目的主要是找上面的代码在哪里？</p>
+<p>打开电影网站<a target="_blank" rel="noopener" href="http://fagmn.com/">http://fagmn.com/</a></p>
+<p>点击电视剧或者电影分类-点右键，查看页面源代码。向下拉，随便找到一个影片的信息。</p>
+<p>按照上面代码的显示把它翻译到规则代码里，注意””要用\来转译，例如”标题”:”title&#x3D;&quot;&amp;&amp;&quot;“，里面的\就是源码里””的转译！</p>
+<p>&amp;&amp; 就是你要取的内容 例如标题的内容 手工少女*****</p>
+<p>接下来就一一对应截取下来！</p>
+<p>照葫芦画瓢，多搞几次就会了。</p>
+<p>播放数组：随便点开一个影片，点右键，查看页面源代码。向下拉，随便找到一个影片的信息，和数组一样，照葫芦画瓢。</p>
+<p>搜索数组：找到搜索，随便搜个影片，点右键，查看页面源代码。向下拉，随便找到一个影片的信息，和数组一样，照葫芦画瓢。</p>
+<p>线路数据：同播放数组。</p>
+<p>使用海阔世界的源码助手可以帮助快速的精简代码。</p>
+<p><a target="_blank" rel="noopener" href="https://haikuo.lanzouf.com/u/GoldRiver">https://haikuo.lanzouf.com/u/GoldRiver</a></p>
+<hr>
+<h1 id="三、精缝"><a href="#三、精缝" class="headerlink" title="三、精缝"></a>三、精缝</h1><ul>
+<li><p>准备XBPQ.jar的包，约300k大小</p>
+</li>
+<li><p>解压缩获取classes.dex。用MT管理器将dex文件打开</p>
+</li>
+<li><p>将spider文件夹内的所有文件，长按以后，选择重命名(XBPQ除外)，改成xxx-xbpq。主要是防止除XBPQ外的其它文件与已有文件名冲突</p>
+</li>
+<li><p>将spider内的merge文件夹，长按后重命名为merge-xbpg，也是为了防止冲突</p>
+</li>
+<li><p>修改完成后选择退出merge并保持修改</p>
+</li>
+<li><p>打开classes.dex时，选择转成smail。得到classes.zip压缩文件</p>
+</li>
+<li><p>解压缩classes.zip文件，如果遇到解压缩文件冲突，选择修改文件名以共存</p>
+</li>
+<li><p>将解压缩后的文件夹内的spider和parser文件夹，复制到CatVodSpider项目的.&#x2F;jar&#x2F;3rd&#x2F;xbpq&#x2F;目录内</p>
+</li>
+<li><p>修改genJar.bat文件，在复制smail文件时，将上一步的文件夹复制进去，达到缝合目的：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line"></span><br><span class="line">del &quot;%~dp0\custom_spider.jar&quot;</span><br><span class="line"></span><br><span class="line">java -jar &quot;%~dp0\3rd\baksmali-2.5.2.jar&quot; d &quot;%~dp0\..\app\build\intermediates\dex\release\minifyReleaseWithR8\classes.dex&quot; -o &quot;%~dp0\Smali_classes&quot;</span><br><span class="line"></span><br><span class="line">java -jar &quot;%~dp0\3rd\XBPQ.jar&quot; d &quot;%~dp0\..\app\build\intermediates\dex\release\minifyReleaseWithR8\classes.dex&quot; -o &quot;%~dp0\Smali_classes_xbpq&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\spider.jar\smali\com\github\catvod\spider&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\spider.jar\smali\com\github\catvod\parser&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\spider.jar\smali\com\github\catvod\js&quot;</span><br><span class="line"></span><br><span class="line">if not exist &quot;%~dp0\spider.jar\smali\com\github\catvod\&quot; md &quot;%~dp0\spider.jar\smali\com\github\catvod\&quot;</span><br><span class="line"></span><br><span class="line">move &quot;%~dp0\Smali_classes\com\github\catvod\spider&quot; &quot;%~dp0\spider.jar\smali\com\github\catvod\&quot;</span><br><span class="line"></span><br><span class="line">move &quot;%~dp0\Smali_classes\com\github\catvod\parser&quot; &quot;%~dp0\spider.jar\smali\com\github\catvod\&quot;</span><br><span class="line"></span><br><span class="line">move &quot;%~dp0\Smali_classes\com\github\catvod\js&quot; &quot;%~dp0\spider.jar\smali\com\github\catvod\&quot;</span><br><span class="line"></span><br><span class="line">xcopy /s &quot;%~dp0\3rd\xbpq\spider\&quot; &quot;%~dp0\spider.jar\smali\com\github\catvod\spider&quot;</span><br><span class="line"></span><br><span class="line">if not exist &quot;%~dp0\spider.jar\smali\com\github\catvod\parser\&quot; md &quot;%~dp0\spider.jar\smali\com\github\catvod\parser\&quot;</span><br><span class="line"></span><br><span class="line">xcopy /s &quot;%~dp0\3rd\xbpq\parser\&quot; &quot;%~dp0\spider.jar\smali\com\github\catvod\parser&quot;</span><br><span class="line"></span><br><span class="line">java -jar &quot;%~dp0\3rd\apktool_2.4.1.jar&quot; b &quot;%~dp0\spider.jar&quot; -c</span><br><span class="line"></span><br><span class="line">move &quot;%~dp0\spider.jar\dist\dex.jar&quot; &quot;%~dp0\custom_spider.jar&quot;</span><br><span class="line"></span><br><span class="line">certUtil -hashfile &quot;%~dp0\custom_spider.jar&quot; MD5 | find /i /v &quot;md5&quot; | find /i /v &quot;certutil&quot; &gt; &quot;%~dp0\custom_spider.jar.md5&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\spider.jar\build&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\spider.jar\smali&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\spider.jar\dist&quot;</span><br><span class="line"></span><br><span class="line">rd /s/q &quot;%~dp0\Smali_classes&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上述文件新增了两个xcopy的命令，就是两个空行之间的代码。</p>
+<ul>
+<li>运行build.bat打包，打包过程与原打包相同。</li>
+</ul>
+<hr>
+<blockquote>
+<p>作者: 孔国军<br>原文地址: <a target="_blank" rel="noopener" href="http://www.kgj.cc/?post=1137">http://www.kgj.cc/?post=1137</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://lwang1997.github.io">短叹๑</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://lwang1997.github.io/2024/09/14/xbpq-jar-tvbox%E6%8E%A5%E5%8F%A3%E5%86%99%E6%BA%90%E6%95%99%E7%A8%8B/">https://lwang1997.github.io/2024/09/14/xbpq-jar-tvbox%E6%8E%A5%E5%8F%A3%E5%86%99%E6%BA%90%E6%95%99%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://lwang1997.github.io" target="_blank">花梦旅人のBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/TVBox/">TVBox</a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/xbpq/">xbpq</a></div><div class="post-share"><div class="social-share" data-image="https://q1.qlogo.cn/g?b=qq&amp;nk=1593775941&amp;s=640" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://q1.qlogo.cn/g?b=qq&amp;nk=1593775941&amp;s=640" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">短叹๑</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lwang1997"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/lwang1997" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1593775941@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%88%AA%E5%8F%96"><span class="toc-number">1.</span> <span class="toc-text">1.截取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8C%85%E5%90%AB%E4%B8%8E%E4%B8%8D%E5%8C%85%E5%90%AB"><span class="toc-number">2.</span> <span class="toc-text">2.包含与不包含</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9B%BF%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">3.替换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8B%BC%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">4.+拼接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8C%87%E5%AE%9A%E6%88%AA%E5%8F%96"><span class="toc-number">5.</span> <span class="toc-text">5.指定截取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%BD%AC%E4%B9%89%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">6.转义符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-json%E6%A8%A1%E5%BC%8F-%E4%B8%8D%E6%87%82%E4%BB%80%E4%B9%88%E6%98%AFjson%E7%9A%84%E5%BF%BD%E7%95%A5%E6%AD%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">7.json模式(不懂什么是json的忽略此模式)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Base64"><span class="toc-number">8.</span> <span class="toc-text">8.Base64</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%A1%AB%E5%86%99%E5%8F%8A%E6%9F%A5%E9%94%99%E6%AD%A5%E9%AA%A4"><span class="toc-number">9.</span> <span class="toc-text">9.填写及查错步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%BB%A5%E4%B8%8B%E4%B8%BA%E5%AE%8C%E6%95%B4%E5%AD%97%E6%AE%B5"><span class="toc-number">10.</span> <span class="toc-text">10.以下为完整字段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E8%8E%B7%E5%8F%96%E5%A4%A7%E5%88%86%E7%B1%BB"><span class="toc-number">10.1.</span> <span class="toc-text">10.1 获取大分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E6%88%AA%E5%8F%96%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96%E5%A4%A7%E5%88%86%E7%B1%BB"><span class="toc-number">10.2.</span> <span class="toc-text">10.2 也可以使用截取方式获取大分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-%E8%8E%B7%E5%8F%96%E5%88%86%E7%B1%BB%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE"><span class="toc-number">10.3.</span> <span class="toc-text">10.3 获取分类展示数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-%E8%8E%B7%E5%8F%96%E7%BA%BF%E8%B7%AF%E6%A0%87%E9%A2%98"><span class="toc-number">10.4.</span> <span class="toc-text">10.4 获取线路标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-%E8%8E%B7%E5%8F%96%E5%85%B6%E4%BB%96%E7%BA%BF%E8%B7%AF%E9%93%BE%E6%8E%A5-%E7%94%A8%E4%BA%8E%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8%E4%B8%8D%E5%9C%A8%E8%AF%A6%E6%83%85%E9%A1%B5%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E4%B8%80%E8%88%AC%E7%94%A8%E4%B8%8D%E7%9D%80"><span class="toc-number">10.5.</span> <span class="toc-text">10.5 获取其他线路链接(用于播放列表不在详情页的情况，一般用不着)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-%E8%8E%B7%E5%8F%96%E8%AF%A6%E6%83%85"><span class="toc-number">10.6.</span> <span class="toc-text">10.6 获取详情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-7-%E8%8E%B7%E5%8F%96%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8"><span class="toc-number">10.7.</span> <span class="toc-text">10.7 获取播放列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-8-%E8%8E%B7%E5%8F%96%E6%90%9C%E7%B4%A2%E6%95%B0%E6%8D%AE"><span class="toc-number">10.8.</span> <span class="toc-text">10.8 获取搜索数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-9-%E8%8E%B7%E5%8F%96%E7%AD%9B%E9%80%89"><span class="toc-number">10.9.</span> <span class="toc-text">10.9 获取筛选</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BE%8B%E5%AD%90"><span class="toc-number"></span> <span class="toc-text">二、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-freeok"><span class="toc-number">1.</span> <span class="toc-text">1.freeok</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%8C%E6%95%B4%E6%A1%88%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">2.完整案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%B2%BE%E7%BC%9D"><span class="toc-number"></span> <span class="toc-text">三、精缝</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/14/xbpq-jar-tvbox%E6%8E%A5%E5%8F%A3%E5%86%99%E6%BA%90%E6%95%99%E7%A8%8B/" title="xbpq.jar tvbox接口写源教程">xbpq.jar tvbox接口写源教程</a><time datetime="2024-09-13T16:00:00.000Z" title="发表于 2024-09-14 00:00:00">2024-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/Hexo%E6%B7%BB%E5%8A%A0%E6%A8%B1%E8%8A%B1%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C%E8%83%8C%E6%99%AF/" title="Hexo添加樱花动态效果背景"><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20vd2FuZ193eC9pbWFnZV9iZWQvcmF3L21hc3Rlci8yMDIwLzIwMjAwNDE4MjI1NjAzLmdpZg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo添加樱花动态效果背景"/></a><div class="content"><a class="title" href="/2022/10/04/Hexo%E6%B7%BB%E5%8A%A0%E6%A8%B1%E8%8A%B1%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C%E8%83%8C%E6%99%AF/" title="Hexo添加樱花动态效果背景">Hexo添加樱花动态效果背景</a><time datetime="2022-10-04T14:15:29.000Z" title="发表于 2022-10-04 22:15:29">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/ESP32-esp-idf-lvgl-V8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%A7%BB%E6%A4%8D/" title="ESP32_esp-idf_lvgl_V8环境搭建移植"><img src="https://lvgl.io/assets/images/img_banner_1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ESP32_esp-idf_lvgl_V8环境搭建移植"/></a><div class="content"><a class="title" href="/2022/10/04/ESP32-esp-idf-lvgl-V8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E7%A7%BB%E6%A4%8D/" title="ESP32_esp-idf_lvgl_V8环境搭建移植">ESP32_esp-idf_lvgl_V8环境搭建移植</a><time datetime="2022-10-04T10:29:14.000Z" title="发表于 2022-10-04 18:29:14">2022-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/04/Hexo%E6%96%B0%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%BD%92%E6%A1%A3%E7%AD%89%E9%A1%B5%E9%9D%A2/" title="Hexo新建标签、分类、归档等页面">Hexo新建标签、分类、归档等页面</a><time datetime="2022-10-03T19:31:04.000Z" title="发表于 2022-10-04 03:31:04">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0-%E6%96%87%E7%AB%A0%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%8F%8Abanner-MarkDown/" title="hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown"><img src="https://zhangjichengcc.github.io/blog/2018/02/27/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0/suoluetu.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown"/></a><div class="content"><a class="title" href="/2022/10/04/hexo-%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0-%E6%96%87%E7%AB%A0%E7%BC%A9%E7%95%A5%E5%9B%BE%E5%8F%8Abanner-MarkDown/" title="hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown">hexo 创建文章 &amp; 文章缩略图及banner &amp; MarkDown</a><time datetime="2022-10-03T19:02:27.000Z" title="发表于 2022-10-04 03:02:27">2022-10-04</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2022 - 2026 By 短叹๑</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script src="/js/jquery.min.js"></script><script src="/js/fishes.js"></script><script src="/js/sakura.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
