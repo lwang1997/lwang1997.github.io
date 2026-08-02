@@ -1,11 +1,11 @@
 {
-  "version": "1.0.6",
-  "content": "1. AI翻译引擎重构：DeepSeek/OpenAI/MiMo共享基类\n2. 新增全局代理配置：支持HTTP/SOCKS5代理\n3. 新增持久化翻译缓存：LRU淘汰，支持手动清空\n4. 聊天/截图翻译异步化：翻译过程不冻结UI\n5. 性能优化：HTTP连接复用、OCR模型缓存、截图选区缓存\n6. 翻译记忆缓存：跨会话复用翻译结果\n7. 信号连接泄漏修复：源语言切换不累积连接\n8. 配置深拷贝修复：防止修改配置污染默认值\n9. 取消翻译时显示完成统计摘要\n10. 目标语言全选/反选按钮，支持记住上次选择\n11. AI翻译错误处理优化：指数退避重试、限频/认证错误分类\n12. 新增翻译风格：首字母大写、全大写、标题大写、书面正式\n13. 快速模式优化：智能拆分、连续失败降级、缓存预检查\n14. 新增重置设置按钮（保留API Key），分隔符支持转义输入\n15. 新增头文件自动选择目标语言：解析.h宏，模糊匹配Excel列名\n16. 翻译耗时统计：完成后在日志输出总耗时",
+  "version": "1.0.7",
+  "content": "1. 新增CLI命令行模式：支持命令行参数执行翻译、AI提取/导入模式、JSON输出\n2. 主程序CLI/GUI双模式：带参数时自动进入命令行模式\n3. 翻译缓存可视化编辑：支持搜索/筛选/编辑/删除缓存条目\n4. 缓存存储优化：改用gzip压缩存储，兼容旧版格式自动迁移\n5. 快速模式拼接缓存拆分：拼接条目可单独编辑和管理\n6. API密钥输入框默认加密，支持显示/隐藏切换\n7. 文件加载添加加载动画覆盖层，提升大文件打开体验\n8. 默认翻译风格改为首字母大写\n9. 新增腾讯翻译API依赖\n10. 缓存新增导出/导入功能\n11. 主界面新增\"使用缓存翻译\"开关，默认开启，可完全绕过缓存\n12. 缓存容量提升至5万条，快速模式逐条缓存，后台保存不卡顿\n13. 修复谷歌翻译限流：429按10/20/40秒退避重试\n14. 默认请求间隔提升至5秒，快速模式同样遵守\n15. 所有引擎错误输出到日志框，异常含完整堆栈\n16. 修复保存设置丢失缓存开关的Bug\n17. 头文件自动勾选兼容UTE_MULTI_LANGUAGE_xxx_SUPPORT新格式",
   "download_urls": [
-    "https://gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.6/default.exe",
-    "https://v4.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.6/default.exe",
-    "https://v6.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.6/default.exe",
-    "https://cdn.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.6/default.exe",
-    "https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.6/default.exe"
+    "https://gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.7/default.exe",
+    "https://v4.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.7/default.exe",
+    "https://v6.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.7/default.exe",
+    "https://cdn.gh-proxy.org/https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.7/default.exe",
+    "https://github.com/lwang1997/excel-translation-tool/releases/download/v1.0.7/default.exe"
   ]
 }
